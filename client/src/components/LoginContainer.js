@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import EmailInputContainer from './EmailInputContainer'
-// import NextLoginBtn from './NextLoginBtn'
 import SignUp from './SignUp'
 import './LoginContainer.css'
 function LoginContainer(props) {
