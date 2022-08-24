@@ -1,0 +1,16 @@
+.input-container {
+    color:rgb(61, 79, 88);
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    width: 290px;
+    height: 30px;
+    border-radius: 5px;
+}
+input{
+border: 0;
+}
+label {
+    font-weight: bold;
+    color: rgb(61, 79, 88);
+
+}
