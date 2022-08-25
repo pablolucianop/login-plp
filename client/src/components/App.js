@@ -4,6 +4,17 @@ import LoginContainer from './LoginContainer'
 
 function App() {
   const [state, setState] = useState({ apiResponse: '' })
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  function handleSubmitEmail(email, password) {
+    setEmail(email)
+    setPassword(password)
+    console.log('email', email)
+    console.log('password', password)
+  }
+  function handleSubmitPassword(email) {
+    setEmail(email)
+  }
 
   function callAPI() {
     fetch('http://localhost:9000/testAPI')
@@ -24,7 +35,7 @@ function App() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email: 'it@drixit.com',
+        email: email,
         password: 'some-password',
       }),
     })
@@ -32,14 +43,20 @@ function App() {
       .then((data) => setState({ apiResponse: data }))
   }
 
+  let emailValidated = false
+
   React.useEffect(() => {
     callAPI()
   }, [])
 
   return (
     <div>
-      Drixit
-      <LoginContainer left={'<Contacts />'} right={'<Chat />'} />
+      Drixit {email}
+      <LoginContainer
+        handleSubmitEmail={handleSubmitEmail}
+        handleSubmitPassword={handleSubmitPassword}
+        emailValidated={emailValidated}
+      />
       <button onClick={loginUser}>X-----</button>
       {console.log('state', state)}
     </div>
