@@ -24,8 +24,8 @@ function App() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        u: 'u1',
-        p: 'p1',
+        email: 'it@drixit.com',
+        password: 'some-password',
       }),
     })
       .then((data) => data.text())
@@ -40,8 +40,8 @@ function App() {
     <div>
       Drixit
       <LoginContainer left={'<Contacts />'} right={'<Chat />'} />
-      <button onClick={loginUser}></button>
-      {state.apiResponse}
+      <button onClick={loginUser}>X-----</button>
+      {console.log('state', state)}
     </div>
   )
 }

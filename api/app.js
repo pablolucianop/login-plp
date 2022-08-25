@@ -10,7 +10,16 @@ var testAPIRouter = require('./routes/testAPI')
 var loginRouter = require('./routes/login')
 var app = express()
 var bcrypt = require('bcrypt')
-var users = require('./users')
+var users = require('./devMockup/users')
+
+///////////////
+
+require('dotenv').config()
+// require('./config/database').connect()
+
+// Logic goes here
+
+////////////////////////
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
