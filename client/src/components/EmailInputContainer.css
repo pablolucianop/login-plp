@@ -1,16 +1,40 @@
 .input-container {
-    color:rgb(61, 79, 88);
-    background-color: rgb(255, 255, 255);
+    /* color:rgb(61, 79, 88); */
+    /* background-color: rgb(255, 255, 255);
     display: flex;
     width: 290px;
     height: 30px;
     border-radius: 5px;
+    border-color: blue;
+    border: 1ch; */
+    width: 100%;
+    font-weight: normal;
+    border: 1px solid rgb(0, 163, 92);
+    z-index: 1;
+    outline: none;
+    color: rgb(0, 30, 43);
+    background-color: rgb(255, 255, 255);
+    font-size: 13px;
+    height: 36px;
+    padding-left: 12px;
+    border-radius: 6px;
+    padding-right: 36px;
 }
 input{
-border: 0;
+        transition: border-color 150ms ease-in-out 0s;
+    font-family: "Euclid Circular A", Akzidenz, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    height: 34px;
+    border: 0;
+    width: 100% -23px;
+    background-color: rgb(255, 255, 255);
 }
 label {
     font-weight: bold;
     color: rgb(61, 79, 88);
+}
 
+.check {
+    position: relative;
+        right: 0%;
+        top: -13px;
 }

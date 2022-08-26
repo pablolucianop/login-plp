@@ -32,9 +32,11 @@ router.post('/', async function (req, res, next) {
       // user
       res.status(200).json(user)
       // res.json('user.token', user.token)
+    } else {
+      res.status(400).send('Invalid Credentials')
     }
 
-    res.status(400).send('Invalid Credentials')
+    //
   } catch (err) {
     console.log(err)
   }

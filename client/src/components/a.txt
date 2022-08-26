@@ -1,0 +1,30 @@
+
+
+
+ useEffect(() => setCount(count + 1));
+
+
+  return (
+    <div>
+
+ <div>Number of changes: {count}</div>
+ </div>
+  )
+}
+
+import { useEffect, useState } from 'react';
+
+
+
+
+
+ useEffect(() => setCount(count + 1), [value]);
+
+
+  return (
+    <div>
+ <input type="text" value={value} onChange={onChange} />
+ <div>Number of changes: {count}</div>
+ </div>
+  );
+}

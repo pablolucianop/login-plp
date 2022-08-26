@@ -1,34 +1,57 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
 import LoginContainer from './LoginContainer'
 
 function App() {
   const [state, setState] = useState({ apiResponse: '' })
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  function handleSubmitEmail(email, password) {
-    setEmail(email)
-    setPassword(password)
-    console.log('email', email)
-    console.log('password', password)
+  const [apiRes, setApiRes] = useState({ apiResponse: '' })
+  const [validMail, setValidMail] = useState(false)
+  // const [email, setEmail] = useState('')
+  // const [password, setPassword] = useState('')
+  const [emailValidated, setEmailValidated] = useState(false)
+  const [submitedMail, setSubmitedMail] = useState(false)
+
+  async function handleSubmitEmail(email) {
+    // setSubmitedMail(state)
+    return fetch('http://localhost:9000/validateMail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+      }),
+    })
+      .then((data) => data.text())
+      .then((data) => console.log('apiResponse: data', { apiResponse: data }))
+      .then((data) => setEmailValidated({ apiResponse: data }))
+      .then((data) => console.log('emailValidated.apiResponse', emailValidated))
   }
-  function handleSubmitPassword(email) {
-    setEmail(email)
-  }
+
+  // async function handleSubmitEmail(email) {
+  //   // setSubmitedMail(state)
+  //   return fetch('http://localhost:9000/validateMail', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       email: email,
+  //     }),
+  //   })
+  //     .then((data) => data.text())
+  //     .then((data) => console.log('apiResponse: data', { apiResponse: data }))
+  //     .then((data) => setEmailValidated({ apiResponse: data }))
+  //     .then((data) => console.log('emailValidated.apiResponse', emailValidated))
+  // }
 
   function callAPI() {
     fetch('http://localhost:9000/testAPI')
       .then((res) => res.text())
       .then((res) => setState({ apiResponse: res }))
   }
-  async function handleBtnClick() {
-    await fetch('http://localhost:9000/testAPI')
-      .then((res) => res.text())
-      .then((res) => setState({ apiResponse: res }))
-    console.log(state)
-  }
 
-  async function loginUser(credentials) {
+  async function loginUser(email, password) {
     return fetch('http://localhost:9000/login', {
       method: 'POST',
       headers: {
@@ -36,29 +59,25 @@ function App() {
       },
       body: JSON.stringify({
         email: email,
-        password: 'some-password',
+        password: password,
       }),
     })
       .then((data) => data.text())
       .then((data) => setState({ apiResponse: data }))
+      .then((data) => console.log(state))
   }
-
-  let emailValidated = false
-
-  React.useEffect(() => {
-    callAPI()
-  }, [])
 
   return (
     <div>
-      Drixit {email}
+      Drixit some-password
       <LoginContainer
         handleSubmitEmail={handleSubmitEmail}
-        handleSubmitPassword={handleSubmitPassword}
+        loginUser={loginUser}
         emailValidated={emailValidated}
       />
-      <button onClick={loginUser}>X-----</button>
-      {console.log('state', state)}
+      <button onClick={loginUser}>login</button>
+      {/* <button onClick={validateMail}>validate</button> */}
+      {/* {console.log('state', state)} */}
     </div>
   )
 }

@@ -6,11 +6,9 @@ function EmailInputContainer(props) {
   const [password, setPassword] = useState('')
   const handleSubmit = (e) => {
     e.preventDefault()
-    props.handleSubmitEmail(email)
-  }
-  const handleSubmitPassword = (e) => {
-    e.preventDefault()
-    props.handleSubmitPassword(email)
+    props.emailValidated
+      ? props.loginUser(email, password)
+      : props.handleSubmitEmail(email, password)
   }
 
   return (
@@ -24,7 +22,7 @@ function EmailInputContainer(props) {
           required
         />
 
-        {<p>✔️</p>}
+        {props.emailValidated && <p className="check">✔️</p>}
         {/* {renderErrorMessage('uname')} */}
       </div>
       {props.emailValidated && (
@@ -32,7 +30,7 @@ function EmailInputContainer(props) {
           <label>password</label>
           <div className="input-container">
             <input
-              type="text"
+              type="password"
               onChange={(e) => setPassword(e.target.value)}
               name="password"
               required
@@ -41,14 +39,16 @@ function EmailInputContainer(props) {
           </div>
         </div>
       )}
-      {/* <div className="input-container"> */}
-      {/* <label>Password </label> */}
-      {/* <input type="password" name="pass" required /> */}
-      {/* {renderErrorMessage('pass')} */}
-      {/* </div> */}
-
-      <NextLoginBtn type="submit" />
-      <NextLoginBtn type="button" onClick={handleSubmitPassword} />
+      {props.emailValidated ? (
+        <input
+          type="submit"
+          name="foo"
+          value="login"
+          className="NextLoginBtn"
+        />
+      ) : (
+        <input type="submit" name="foo" value="next" className="NextLoginBtn" />
+      )}
     </form>
   )
 }
