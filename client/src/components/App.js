@@ -22,7 +22,7 @@ function App() {
         email: email,
       }),
     })
-      .then((data) => data.text())
+      .then((data) => data.json())
       .then((data) => console.log('apiResponse: data', { apiResponse: data }))
       .then((data) => setEmailValidated({ apiResponse: data }))
       .then((data) => console.log('emailValidated.apiResponse', emailValidated))
@@ -64,7 +64,7 @@ function App() {
     })
       .then((data) => data.text())
       .then((data) => setState({ apiResponse: data }))
-      .then((data) => console.log(state))
+      .then((data) => console.log())
   }
 
   return (
