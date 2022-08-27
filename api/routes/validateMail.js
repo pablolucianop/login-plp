@@ -16,11 +16,11 @@ router.post('/', async function (req, res, next) {
     const user = User.filter((obj) => obj.email === email)[0]
     if (user) {
       // user
-      res.status(200).json(user.email)
+      res.status(200).send(true)
       // res.json('user.token', user.token)
     } else {
       // res.status(400).send('Invalid Credentials')
-      res.status(400).json(user)
+      res.status(400).send(false)
     }
   } catch (err) {
     console.log(err)

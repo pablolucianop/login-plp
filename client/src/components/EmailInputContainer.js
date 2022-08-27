@@ -39,16 +39,11 @@ function EmailInputContainer(props) {
           </div>
         </div>
       )}
-      {props.emailValidated ? (
-        <input
-          type="submit"
-          name="foo"
-          value="login"
-          className="NextLoginBtn"
-        />
-      ) : (
-        <input type="submit" name="foo" value="next" className="NextLoginBtn" />
-      )}
+      {/* {props.emailValidated ? ( */}
+      <input type="submit" name="foo" value="login" className="NextLoginBtn" />
+      {/* ) : ( */}
+      <input type="submit" name="foo" value="next" className="NextLoginBtn" />
+      {/* )} */}
     </form>
   )
 }

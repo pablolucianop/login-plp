@@ -20,9 +20,8 @@ function App() {
         email: email,
       }),
     })
-      .then((data) => data.text())
-      .then((data) => console.log('apiResponse: data', { apiResponse: data }))
-      .then((data) => setEmailValidated({ apiResponse: data }))
+      .then((data) => data.json())
+      .then((data) => setEmailValidated(data))
       .then((data) => console.log('emailValidated.apiResponse', emailValidated))
   }
 
@@ -56,8 +55,6 @@ function App() {
         loginUser={loginUser}
         emailValidated={emailValidated}
       />
-      <button onClick={loginUser}>login</button>
-      <button onClick={handleSubmitEmail}>validate</button>
     </div>
   )
 }
