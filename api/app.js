@@ -19,11 +19,6 @@ var users = require('./devMockup/users')
 require('dotenv').config()
 // require('./config/database').connect()
 
-// Logic goes here
-
-////////////////////////
-
-// view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
 

@@ -6,8 +6,6 @@ function App() {
   const [state, setState] = useState({ apiResponse: '' })
   const [apiRes, setApiRes] = useState({ apiResponse: '' })
   const [validMail, setValidMail] = useState(false)
-  // const [email, setEmail] = useState('')
-  // const [password, setPassword] = useState('')
   const [emailValidated, setEmailValidated] = useState(false)
   const [submitedMail, setSubmitedMail] = useState(false)
 
@@ -27,23 +25,6 @@ function App() {
       .then((data) => setEmailValidated({ apiResponse: data }))
       .then((data) => console.log('emailValidated.apiResponse', emailValidated))
   }
-
-  // async function handleSubmitEmail(email) {
-  //   // setSubmitedMail(state)
-  //   return fetch('http://localhost:9000/validateMail', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       email: email,
-  //     }),
-  //   })
-  //     .then((data) => data.text())
-  //     .then((data) => console.log('apiResponse: data', { apiResponse: data }))
-  //     .then((data) => setEmailValidated({ apiResponse: data }))
-  //     .then((data) => console.log('emailValidated.apiResponse', emailValidated))
-  // }
 
   function callAPI() {
     fetch('http://localhost:9000/testAPI')
@@ -77,7 +58,6 @@ function App() {
       />
       <button onClick={loginUser}>login</button>
       <button onClick={handleSubmitEmail}>validate</button>
-      {/* {console.log('state', state)} */}
     </div>
   )
 }
