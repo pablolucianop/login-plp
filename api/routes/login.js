@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
 router.post('/', async function (req, res, next) {
+  console.log('req', req)
   try {
     // Get user input
     const { email, password } = req.body
@@ -17,6 +18,7 @@ router.post('/', async function (req, res, next) {
     //mongo
     // const user = await User.findOne({ email })
     const user = User.filter((obj) => obj.email === email)[0]
+    console.log('user', user)
     if (user && (await bcrypt.compare(password, user.password))) {
       console.log('user.token', user.token)
       // Create token

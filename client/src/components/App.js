@@ -32,6 +32,7 @@ function App() {
   }
 
   async function loginUser(email, password) {
+    console.log('email, password', email, password)
     return fetch('http://localhost:9000/login', {
       method: 'POST',
       headers: {
@@ -42,9 +43,9 @@ function App() {
         password: password,
       }),
     })
-      .then((data) => data.text())
+      .then((data) => data.json())
       .then((data) => setState({ apiResponse: data }))
-      .then((data) => console.log())
+      .then((data) => console.log('state', state))
   }
 
   return (
