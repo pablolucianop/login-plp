@@ -10,9 +10,11 @@ var usersRouter = require('./routes/users')
 var testAPIRouter = require('./routes/testAPI')
 var loginRouter = require('./routes/login')
 var validateMailRouter = require('./routes/validateMail')
+const welcomeRouter = require('./routes/welcome')
 var app = express()
 var bcrypt = require('bcrypt')
 var users = require('./devMockup/users')
+const auth = require('./middleware/auth')
 
 ///////////////
 
@@ -34,6 +36,7 @@ app.use('/users', usersRouter)
 app.use('/testAPI', testAPIRouter)
 app.use('/login', loginRouter)
 app.use('/validateMail', validateMailRouter)
+app.use('/welcome', welcomeRouter)
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404))
@@ -50,6 +53,10 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500)
   res.render('error')
+})
+
+app.post('/welcome', auth, (req, res) => {
+  res.status(200).send('Welcome 🙌 ')
 })
 
 module.exports = app

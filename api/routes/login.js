@@ -32,7 +32,7 @@ router.post('/', async function (req, res, next) {
       // save user token
       user.token = token
       // user
-      res.status(200).json(user)
+      res.status(200).json(token)
       // res.json('user.token', user.token)
     } else {
       res.status(400).send('Invalid Credentials')
