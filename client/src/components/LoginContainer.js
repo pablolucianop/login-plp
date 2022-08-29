@@ -15,7 +15,8 @@ function LoginContainer(props) {
         email: email,
       }),
     })
-    let resJson = res.json()
+    let resJson = await res.json()
+    console.log('resJson', resJson)
     setEmailValidated(resJson)
   }
 
