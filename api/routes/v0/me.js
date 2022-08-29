@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
 const bcrypt = require('bcrypt')
-const User = require('../devMockup/users')
+const User = require('../../devMockup/users')
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 

@@ -6,7 +6,7 @@ function LoginContainer(props) {
   const [emailValidated, setEmailValidated] = useState(false)
 
   async function handleSubmitEmail(email) {
-    let res = await fetch('http://localhost:9000/validateMail', {
+    let res = await fetch('http://localhost:9000/v0/validateMail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -19,9 +19,9 @@ function LoginContainer(props) {
     setEmailValidated(resJson)
   }
 
-  async function loginUser(email, password) {
+  async function authenticateUser(email, password) {
     console.log('email, password', email, password)
-    let res = await fetch('http://localhost:9000/login', {
+    let res = await fetch('http://localhost:9000/v0/authenticate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ function LoginContainer(props) {
   }
 
   async function welcome(jwt) {
-    let res = await fetch('http://localhost:9000/welcome', {
+    let res = await fetch('http://localhost:9000/v0/users/me', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ function LoginContainer(props) {
       Log in to your account
       <EmailInputContainer
         handleSubmitEmail={handleSubmitEmail}
-        loginUser={loginUser}
+        authenticateUser={authenticateUser}
         emailValidated={emailValidated}
       />
       <SignUp />

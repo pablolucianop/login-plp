@@ -6,11 +6,10 @@ var logger = require('morgan')
 var cors = require('cors')
 var indexRouter = require('./routes/index')
 var usersRouter = require('./routes/users')
-// var welcomeRouter = require('./routes/welcome')
 var testAPIRouter = require('./routes/testAPI')
-var loginRouter = require('./routes/login')
-var validateMailRouter = require('./routes/validateMail')
-const welcomeRouter = require('./routes/welcome')
+var authenticateRouter = require('./routes/v0/authenticate')
+var validateMailRouter = require('./routes/v0/validateMail')
+const usersMeRouter = require('./routes/v0/users/me')
 var app = express()
 var bcrypt = require('bcrypt')
 var users = require('./devMockup/users')
@@ -34,9 +33,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 app.use('/testAPI', testAPIRouter)
-app.use('/login', loginRouter)
-app.use('/validateMail', validateMailRouter)
-app.use('/welcome', welcomeRouter)
+app.use('/v0/authenticate', authenticateRouter)
+app.use('/v0/validateMail', validateMailRouter)
+app.use('/v0/users/me', usersMeRouter)
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404))
@@ -53,10 +52,6 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500)
   res.render('error')
-})
-
-app.post('/welcome', auth, (req, res) => {
-  res.status(200).send('Welcome 🙌 ')
 })
 
 module.exports = app

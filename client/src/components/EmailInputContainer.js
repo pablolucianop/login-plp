@@ -6,7 +6,7 @@ function EmailInputContainer(props) {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.emailValidated
-      ? props.loginUser(email, password)
+      ? props.authenticateUser(email, password)
       : props.handleSubmitEmail(email, password)
   }
 
