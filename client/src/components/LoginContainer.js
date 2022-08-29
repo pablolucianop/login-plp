@@ -21,6 +21,8 @@ function LoginContainer(props) {
   }
 
   async function authenticateUser(email, password) {
+    // Somewhere in your code, e.g. inside a handler:
+
     console.log('email, password', email, password)
     let res = await fetch('http://localhost:9000/v0/authenticate', {
       method: 'POST',
@@ -33,7 +35,9 @@ function LoginContainer(props) {
       }),
     })
     let resJson = await res.json()
+
     welcome(resJson)
+    props.goToUserInfo()
   }
 
   async function welcome(jwt) {
