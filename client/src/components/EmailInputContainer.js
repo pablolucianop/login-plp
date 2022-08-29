@@ -13,6 +13,7 @@ function EmailInputContainer(props) {
   return (
     <form onSubmit={handleSubmit}>
       <label>Email Address </label>
+      {props.emailValidated === false && <p className="check">Invalid mail</p>}
       <div className="input-container">
         <input
           type="text"
@@ -24,11 +25,12 @@ function EmailInputContainer(props) {
         {props.emailValidated && (
           <button
             className="check"
-            onClick={() => props.setEmailValidated(false)}
+            onClick={() => props.setEmailValidated(null)}
           >
             change
           </button>
         )}
+
         {props.emailValidated && <p className="check">✔️</p>}
         {/* {renderErrorMessage('uname')} */}
       </div>

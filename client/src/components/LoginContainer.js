@@ -3,7 +3,7 @@ import EmailInputContainer from './EmailInputContainer'
 import SignUp from './SignUp'
 import './LoginContainer.css'
 function LoginContainer(props) {
-  const [emailValidated, setEmailValidated] = useState(false)
+  const [emailValidated, setEmailValidated] = useState(null)
 
   async function handleSubmitEmail(email) {
     let res = await fetch('http://localhost:9000/v0/validateMail', {
