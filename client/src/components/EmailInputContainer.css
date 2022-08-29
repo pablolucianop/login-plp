@@ -1,12 +1,4 @@
 .input-container {
-    /* color:rgb(61, 79, 88); */
-    /* background-color: rgb(255, 255, 255);
-    display: flex;
-    width: 290px;
-    height: 30px;
-    border-radius: 5px;
-    border-color: blue;
-    border: 1ch; */
     width: 100%;
     font-weight: normal;
     border: 1px solid rgb(0, 163, 92);
@@ -37,4 +29,12 @@ label {
     position: relative;
         right: 0%;
         top: -13px;
+}
+.NextLoginBtn {
+    height: 30px;
+    width: 90px;
+    border-radius: 7px;
+    font-weight: bold;
+    color: rgb(136, 147, 151);
+    font-size: medium;
 }

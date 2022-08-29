@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import NextLoginBtn from './NextLoginBtn'
+import React, { useState } from 'react'
 import './EmailInputContainer.css'
 function EmailInputContainer(props) {
   const [email, setEmail] = useState('')
@@ -39,11 +38,16 @@ function EmailInputContainer(props) {
           </div>
         </div>
       )}
-      {/* {props.emailValidated ? ( */}
-      <input type="submit" name="foo" value="login" className="NextLoginBtn" />
-      {/* ) : ( */}
-      <input type="submit" name="foo" value="next" className="NextLoginBtn" />
-      {/* )} */}
+      {props.emailValidated ? (
+        <input
+          type="submit"
+          name="foo"
+          value="login"
+          className="NextLoginBtn"
+        />
+      ) : (
+        <input type="submit" name="foo" value="next" className="NextLoginBtn" />
+      )}
     </form>
   )
 }
