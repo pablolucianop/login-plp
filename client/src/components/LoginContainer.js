@@ -59,6 +59,7 @@ function LoginContainer(props) {
         handleSubmitEmail={handleSubmitEmail}
         authenticateUser={authenticateUser}
         emailValidated={emailValidated}
+        setEmailValidated={setEmailValidated}
       />
       <SignUp />
     </div>
