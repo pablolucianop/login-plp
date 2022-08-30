@@ -14,8 +14,6 @@ function App() {
 
   return (
     <div>
-      Drixit some-password
-      <Link to="/userInfo">Invoices</Link>
       {userData.logedIn ? (
         <Link to="/welcome">Invoices</Link>
       ) : (

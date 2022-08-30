@@ -1,5 +1,12 @@
-.form {
-    /* background-color : rgb(111, 146, 216); */
-        width: 300px;
-    color: rgb(0, 104, 74);
+.form-wrapper{
+    padding-top: 36px;
+        padding-right: 51px;
+        padding-bottom: 36px;
+        padding-left: 51px;
+            -moz-box-shadow: 0px 0px 7px #8e8e8e;
+                -webkit-box-shadow: 0px 0px 7px #8e8e8e;
+                box-shadow: 0px 0px 7px #8e8e8e;
+                width: 380px;
+                height: 100vh;
+                background-color: white;
 }

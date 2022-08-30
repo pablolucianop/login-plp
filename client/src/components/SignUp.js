@@ -2,7 +2,7 @@
 function SignUp(props) {
   return (
     <div>
-      SignUp
+      SignUp some-password
       {/* Hello, {props.name} */}
     </div>
   )

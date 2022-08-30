@@ -12,40 +12,43 @@ function EmailInputContainer(props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>Email Address </label>
-      {props.emailValidated === false && <p className="check">Invalid mail</p>}
-      <div className="input-container">
-        <input
-          type="text"
-          onChange={(e) => setEmail(e.target.value)}
-          name="email"
-          disabled={props.emailValidated}
-          required
-        />
+      <div className="alertArea">
+        {props.emailValidated === false && (
+          <p className="alert">Invalid mail</p>
+        )}
         {props.emailValidated && (
           <button
-            className="check"
+            className="change"
             onClick={() => props.setEmailValidated(null)}
           >
-            change
+            Change
           </button>
         )}
-
-        {props.emailValidated && <p className="check">✔️</p>}
-        {/* {renderErrorMessage('uname')} */}
       </div>
+      <input
+        type="text"
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Email"
+        name="email"
+        disabled={props.emailValidated}
+        required
+      />
+
+      {/* {props.emailValidated &&  <p className="check">✔️</p>} */}
+      {/* {renderErrorMessage('uname')} */}
+
       {props.emailValidated && (
         <div>
-          <label>password</label>
-          <div className="input-container">
-            <input
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-              name="password"
-              required
-            />
-            {/* {renderErrorMessage('uname')} */}
-          </div>
+          {/* <label>password</label> */}
+
+          <input
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            name="password"
+            placeholder="Password"
+            required
+          />
+          {/* {renderErrorMessage('uname')} */}
         </div>
       )}
       {props.emailValidated ? (
@@ -62,49 +65,3 @@ function EmailInputContainer(props) {
   )
 }
 export default EmailInputContainer
-// <form onSubmit={handleSubmit}>
-//   <label>Email Address </label>
-//   <div className="input-container">
-//     <input
-//       type="text"
-//       onChange={(e) => setEmail(e.target.value)}
-//       name="email"
-//       disabled={props.emailValidated}
-//       required
-//     />
-//     {props.emailValidated && (
-//       <button
-//         className="check"
-//         onClick={() => props.setEmailValidated(false)}
-//       >
-//         change
-//       </button>
-//     )}
-//     {props.emailValidated && <p className="check">✔️</p>}
-//     {/* {renderErrorMessage('uname')} */}
-//   </div>
-//   {props.emailValidated && (
-//     <div>
-//       <label>password</label>
-//       <div className="input-container">
-//         <input
-//           type="password"
-//           onChange={(e) => setPassword(e.target.value)}
-//           name="password"
-//           required
-//         />
-//         {/* {renderErrorMessage('uname')} */}
-//       </div>
-//     </div>
-//   )}
-//   {props.emailValidated ? (
-//     <input
-//       type="submit"
-//       name="foo"
-//       value="login"
-//       className="NextLoginBtn"
-//     />
-//   ) : (
-//     <input type="submit" name="foo" value="next" className="NextLoginBtn" />
-//   )}
-// </form>

@@ -58,14 +58,16 @@ function LoginContainer(props) {
 
   return (
     <div className="form">
-      Log in to your account
-      <EmailInputContainer
-        handleSubmitEmail={handleSubmitEmail}
-        authenticateUser={authenticateUser}
-        emailValidated={emailValidated}
-        setEmailValidated={setEmailValidated}
-      />
-      <SignUp />
+      <div className="form-wrapper">
+        <h3> Log in to your account</h3>
+        <EmailInputContainer
+          handleSubmitEmail={handleSubmitEmail}
+          authenticateUser={authenticateUser}
+          emailValidated={emailValidated}
+          setEmailValidated={setEmailValidated}
+        />
+        <SignUp />
+      </div>
     </div>
   )
 }
