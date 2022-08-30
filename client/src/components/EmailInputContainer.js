@@ -57,6 +57,7 @@ function EmailInputContainer(props) {
           name="foo"
           value="login"
           className="NextLoginBtn"
+          disabled={password === ''}
         />
       ) : (
         <input type="submit" name="foo" value="next" className="NextLoginBtn" />

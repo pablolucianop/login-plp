@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './App.css'
 import LoginContainer from './LoginContainer'
+import LoginContainer2 from './LoginContainer2'
+// import { UserInfo } from './userInfo'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
@@ -14,8 +16,9 @@ function App() {
 
   return (
     <div>
+      {/* <UserInfo user={userData}></UserInfo> */}
       {userData.logedIn ? (
-        <Link to="/welcome">Invoices</Link>
+        <Link to="/welcome" ee={'ee'}></Link>
       ) : (
         <LoginContainer setUserData={setUserData} goToUserInfo={goToUserInfo} />
       )}

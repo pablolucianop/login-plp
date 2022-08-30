@@ -1,7 +1,7 @@
 
 
 input{
-border: 1px solid #666666;
+    border: 1px solid #666666;
     color: #666666;
     border-radius: 3px;
     font-size: 15px;
@@ -29,11 +29,11 @@ label {
 
 .check {
     position: relative;
-        right: 0%;
-        top: 48px;
+    right: 0%;
+    top: 48px;
 }
 .NextLoginBtn {
-background-color: #063b5b;
+    background-color: #063b5b;
     color: #ffffff;
     font-size: 16px;
     line-height: 16px;
@@ -54,39 +54,38 @@ background-color: #063b5b;
     transition-timing-function: linear;
     transition-delay: 1s;
     transition: 0.3s;
-    
-    
 }
 .NextLoginBtn:hover {
     background-color: #095a8b;
     -moz-box-shadow: 0px 0px 4px #ffffff;
-            -webkit-box-shadow: 0px 0px 4px #ffffff;
-            box-shadow: 0px 0px 4px #ffffff;
-    
+    -webkit-box-shadow: 0px 0px 4px #ffffff;
+    box-shadow: 0px 0px 4px #ffffff; 
+}
+
+.NextLoginBtn:disabled {
+    background: #90949e;
 }
 .change{
     color: #379392;
     opacity: 0.8;
     background-color: transparent;
     position: relative;
-        background-repeat: no-repeat;
-        border: none;
-        cursor: pointer;
-        overflow: hidden;
-        outline: none;
-        
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none; 
 }
 
 .alertArea {
     height: 80px;
     color: rgb(219, 48, 48);
-display: flex;
+    display: flex;
     flex-direction: column-reverse;
     align-items: flex-end;
     width: 320px;
-        margin-top: 10px;
-
-        line-height: 0px;
+    margin-top: 10px;
+    line-height: 0px;
 }
 
 

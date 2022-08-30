@@ -1,0 +1,30 @@
+.avatarWrapper {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 10px;
+
+}
+
+.avatar {
+    width: 150px;
+    height:150px;
+    background-image: url('https://toppng.com/uploads/preview/roger-berry-avatar-placeholder-11562991561rbrfzlng6h.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 102.7%;
+    
+}
+
+.userInfoWrapper {
+    margin: 50px;
+}
+.email{
+   font-size: medium;
+   height: 10px;
+   color: rgb(120, 120, 120);
+}
+.userName{
+    line-height: 0.5;
+}
