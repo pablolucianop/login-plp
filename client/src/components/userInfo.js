@@ -14,6 +14,7 @@ function UserInfo(props) {
 
   return (
     <div className="userInfoWrapper">
+      {props.user}
       <div className="avatarWrapper">
         <div className="avatar" alt={'Avatar'}></div>
       </div>
@@ -21,10 +22,9 @@ function UserInfo(props) {
       <h1 className="userName">
         {userData.name} {userData.surname}
       </h1>
-
       <p>Role:{userData.role}</p>
       <p>Age:{userData.age}</p>
-      {console.log('props.userData', props.ee)}
+      {console.log('props', props)}
     </div>
   )
 }

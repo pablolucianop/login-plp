@@ -37,7 +37,7 @@ function LoginContainer(props) {
     let resJson = await res.json()
 
     welcome(resJson)
-    props.goToUserInfo()
+    // props.setState()
   }
 
   async function welcome(jwt) {
@@ -54,6 +54,7 @@ function LoginContainer(props) {
     })
     let resJson = await res.json()
     props.setUserData({ logedIn: true, user: resJson })
+    // props.setState({ logedIn: true, user: resJson })
   }
 
   return (

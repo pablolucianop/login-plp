@@ -1,26 +1,30 @@
 import React, { useState } from 'react'
 import './App.css'
 import LoginContainer from './LoginContainer'
-import LoginContainer2 from './LoginContainer2'
-// import { UserInfo } from './userInfo'
+// import LoginContainer2 from './LoginContainer2'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
-function App() {
+function Login(props) {
   let navigate = useNavigate()
   const [userData, setUserData] = useState({ logedIn: false, user: false })
 
-  function goToUserInfo() {
+  function handleButton(params) {
+    props.setState('funca')
     navigate('/userInfo')
   }
 
   return (
     <div>
-      {/* <UserInfo user={userData}></UserInfo> */}
+      <button onClick={handleButton}>X</button>
       {userData.logedIn ? (
         <Link to="/welcome" ee={'ee'}></Link>
       ) : (
-        <LoginContainer setUserData={setUserData} goToUserInfo={goToUserInfo} />
+        <LoginContainer
+          setUserData={setUserData}
+          userData={userData}
+          setState={props.setState}
+        />
       )}
     </div>
   )
@@ -41,4 +45,4 @@ function App2() {
     </div>
   )
 }
-export default App
+export default Login

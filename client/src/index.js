@@ -1,23 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import App from './components/App'
+import Login from './components/Login'
 import reportWebVitals from './reportWebVitals'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Expenses from './components/expenses'
-import Invoices from './components/invoices'
+import { BrowserRouter, Routes, Route, Switch } from 'react-router-dom'
 import UserInfo from './components/userInfo'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(
-  <React.StrictMode>
+
+function Application(props) {
+  const [state, setState] = useState('primero')
+  return (
     <BrowserRouter>
+      Hola whats haninn {state}
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="userInfo" element={<UserInfo />} />
-        <Route path="invoices" element={<Invoices />} />
+        <Route path="/" element={<Login setState={setState} />} />
+        <Route path="userInfo" element={<UserInfo user={state} />} />
       </Routes>
     </BrowserRouter>
+  )
+}
+
+root.render(
+  <React.StrictMode>
+    <Application />
   </React.StrictMode>
 )
 
