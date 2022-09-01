@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import Login from './components/Login'
 import reportWebVitals from './reportWebVitals'
-import { BrowserRouter, Routes, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Redirect } from 'react-router-dom'
 import UserInfo from './components/userInfo'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -15,6 +15,14 @@ function Application(props) {
       <Routes>
         <Route
           path="/"
+          element={<Login setUserData={setUserData} userData={userData} />}
+        />
+        <Route
+          path="*"
+          element={<Login setUserData={setUserData} userData={userData} />}
+        />
+        <Route
+          path="/login"
           element={<Login setUserData={setUserData} userData={userData} />}
         />
         <Route path="user-info" element={<UserInfo userData={userData} />} />

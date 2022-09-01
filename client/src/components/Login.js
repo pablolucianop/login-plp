@@ -71,7 +71,6 @@ function Login(props) {
     console.log('resJson!!!', resJson)
     props.setUserData({ loggedIn: true, user: resJson })
     navigate('/user-info')
-    // props.setState({ loggedIn: true, user: resJson })
   }
 
   return (
@@ -85,6 +84,10 @@ function Login(props) {
           setEmailValidated={setEmailValidated}
           userData={props.userData}
         />
+      </div>
+      <div className="aa">
+        <div className="bb"></div>
+        {/* <div className="nn"></div> */}
       </div>
     </div>
   )

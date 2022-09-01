@@ -22,6 +22,22 @@ input:hover {
     box-shadow: 0px 0px 4px #095a8b;
 }
 
+input:disabled {
+    background: #ededed;
+    -webkit-touch-callout: none;
+        /* iOS Safari */
+        -webkit-user-select: none;
+        /* Safari */
+        -khtml-user-select: none;
+        /* Konqueror HTML */
+        -moz-user-select: none;
+        /* Old versions of Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        user-select: none;
+
+}
+
 label {
     font-weight: bold;
     color: rgb(61, 79, 88);
@@ -71,27 +87,16 @@ label {
     color: rgb(219, 48, 48);
     width: 320px;
     margin-top: 10px;
-    display: flex;
-    background-color: darkcyan;
     position: relative;
-    /* align-items: flex-end;
-    justify-content:flex-end ; */
-
-
 }
 
 .invalidCredentials {
-    width: 200px;
-    line-height: auto;
     font-size: small;
-    background-color: #095a8b;
-    width: 80%;
+    order:2;
+    width: 200px;
     position: absolute;
     bottom: 0px;
-
-    /* display: flex;
-                flex-direction: column-reverse;
-                align-items: flex-end; */
+    left: 0px;
 }
 .change{
     color: #379392;
@@ -102,12 +107,12 @@ label {
     overflow: hidden;
     outline: none; 
     line-height: 0px;
-    height: 15px;
-    /* position:relative; */
-    background-color: coral;
-    width: 20%;
-
-      
+    height: 22px;
+    width: 100px;
+    order: 1;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
 }
 
 
