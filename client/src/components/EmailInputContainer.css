@@ -115,5 +115,11 @@ label {
     right: 0px;
 }
 
+.alert {
+    order: 1;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
 
 

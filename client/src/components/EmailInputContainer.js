@@ -18,9 +18,10 @@ function EmailInputContainer(props) {
             Please provide a valid email address and password.
           </p>
         )}
-        {props.emailValidated === false && (
-          <p className="alert">Invalid email</p>
-        )}
+        {props.emailValidated === false &&
+          props.userData.error !== 'Invalid Credentials' && (
+            <p className="alert">Invalid email</p>
+          )}
 
         {props.emailValidated && (
           <button
