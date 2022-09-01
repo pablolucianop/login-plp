@@ -15,7 +15,7 @@ const users = [
     avatar:
       'https://toppng.com/uploads/preview/roger-berry-avatar-placeholder-11562991561rbrfzlng6h.png',
     email: 'info@drixit.com',
-    password: 'other-password',
+    password: '$2b$10$s0V/hCfQU89qwXKKFrQgbeCiYSINaUBDETT3Nc0/CmblhCO9VupO.',
     name: 'Info',
     surname: 'Drixit',
     age: 30,

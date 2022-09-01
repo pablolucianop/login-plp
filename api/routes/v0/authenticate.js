@@ -20,7 +20,6 @@ router.post('/', async function (req, res, next) {
     const user = User.filter((obj) => obj.email === email)[0]
     console.log('user', user)
     if (user && (await bcrypt.compare(password, user.password))) {
-      console.log('user.token', user.token)
       // Create token
       const token = jwt.sign(
         { user_id: user._id, email },
