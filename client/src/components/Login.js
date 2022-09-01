@@ -18,13 +18,14 @@ function Login(props) {
         email: email,
       }),
     })
+
     let resJson = await res.json()
     console.log('resJson', resJson)
     setEmailValidated(resJson)
   }
 
   async function authenticateUser(email, password) {
-    // Somewhere in your code, e.g. inside a handler:
+    console.log('autenticate!!!')
 
     console.log('email, password', email, password)
     let res = await fetch('http://localhost:9000/v0/authenticate', {
@@ -37,10 +38,21 @@ function Login(props) {
         password: password,
       }),
     })
+    console.log('res.status', res.status)
+    if (res.status !== 200) {
+      props.setUserData({
+        loggedIn: true,
+        user: '',
+        error: 'Invalid Credentials',
+      })
+
+      return
+      // throw new Error(res.status)
+    }
+
     let resJson = await res.json()
 
     welcome(resJson)
-    // props.setState()
   }
 
   async function welcome(jwt) {
@@ -56,9 +68,10 @@ function Login(props) {
       }),
     })
     let resJson = await res.json()
-    props.setUserData({ logedIn: true, user: resJson })
-    navigate('/userInfo')
-    // props.setState({ logedIn: true, user: resJson })
+    console.log('resJson!!!', resJson)
+    props.setUserData({ loggedIn: true, user: resJson })
+    navigate('/user-info')
+    // props.setState({ loggedIn: true, user: resJson })
   }
 
   return (
@@ -70,6 +83,7 @@ function Login(props) {
           authenticateUser={authenticateUser}
           emailValidated={emailValidated}
           setEmailValidated={setEmailValidated}
+          userData={props.userData}
         />
       </div>
     </div>

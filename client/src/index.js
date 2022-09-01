@@ -9,16 +9,15 @@ import UserInfo from './components/userInfo'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 function Application(props) {
-  const [userData, setUserData] = useState({ user: false, logedIn: false })
+  const [userData, setUserData] = useState({ user: false, loggedIn: false })
   return (
     <BrowserRouter>
-      {/* Hola whats haninn {state} */}
       <Routes>
         <Route
           path="/"
           element={<Login setUserData={setUserData} userData={userData} />}
         />
-        <Route path="userInfo" element={<UserInfo userData={userData} />} />
+        <Route path="user-info" element={<UserInfo userData={userData} />} />
       </Routes>
     </BrowserRouter>
   )

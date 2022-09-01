@@ -13,9 +13,15 @@ function EmailInputContainer(props) {
   return (
     <form onSubmit={handleSubmit}>
       <div className="alertArea">
-        {props.emailValidated === false && (
-          <p className="alert">Invalid mail</p>
+        {props.userData.error === 'Invalid Credentials' && (
+          <p className="invalidCredentials">
+            Please provide a valid email address and password.
+          </p>
         )}
+        {props.emailValidated === false && (
+          <p className="alert">Invalid email</p>
+        )}
+
         {props.emailValidated && (
           <button
             className="change"

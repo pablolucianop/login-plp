@@ -1,5 +1,5 @@
-var express = require('express')
-var router = express.Router()
+const express = require('express')
+const router = express.Router()
 const bcrypt = require('bcrypt')
 const User = require('../../devMockup/users')
 const jwt = require('jsonwebtoken')
@@ -19,6 +19,23 @@ router.post('/', async function (req, res, next) {
     // const user = await User.findOne({ email })
     const user = User.filter((obj) => obj.email === email)[0]
     console.log('user', user)
+
+    const unauthorized = {
+      error: {
+        errors: [
+          {
+            domain: 'global',
+            reason: 'required',
+            message: 'Login Required',
+            locationType: 'header',
+            location: 'Authorization',
+          },
+        ],
+        code: 401,
+        message: 'Login Required',
+      },
+    }
+
     if (user && (await bcrypt.compare(password, user.password))) {
       // Create token
       const token = jwt.sign(
@@ -32,10 +49,8 @@ router.post('/', async function (req, res, next) {
       user.token = token
       // user
       res.status(200).json(token)
-      // res.json('user.token', user.token)
-    } else {
-      res.status(400).send('Invalid Credentials')
     }
+    res.status(401).json(JSON.stringify(unauthorized))
 
     //
   } catch (err) {
