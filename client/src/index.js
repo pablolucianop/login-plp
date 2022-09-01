@@ -9,13 +9,16 @@ import UserInfo from './components/userInfo'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 function Application(props) {
-  const [state, setState] = useState('primero')
+  const [userData, setUserData] = useState('primero')
   return (
     <BrowserRouter>
-      Hola whats haninn {state}
+      {/* Hola whats haninn {state} */}
       <Routes>
-        <Route path="/" element={<Login setState={setState} />} />
-        <Route path="userInfo" element={<UserInfo user={state} />} />
+        <Route
+          path="/"
+          element={<Login setUserData={setUserData} userData={userData} />}
+        />
+        <Route path="userInfo" element={<UserInfo userData={userData} />} />
       </Routes>
     </BrowserRouter>
   )
