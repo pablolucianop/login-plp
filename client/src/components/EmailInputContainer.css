@@ -98,6 +98,10 @@ label {
     bottom: 0px;
     left: 0px;
 }
+.expiredToken{
+        color: rgb(27, 27, 27);
+}
+
 .change{
     color: #379392;
     opacity: 0.8;

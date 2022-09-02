@@ -52,21 +52,30 @@ function Login(props) {
 
     let resJson = await res.json()
 
-    welcome(resJson)
+    getUserInfo(resJson)
   }
 
-  async function welcome(jwt) {
+  async function getUserInfo(jwt) {
     let res = await fetch('http://localhost:9000/v0/users/me', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        email: 'it@drixit.com',
-        password: 'some-password',
         token: jwt,
       }),
     })
+    if (res.status !== 200) {
+      setEmailValidated(null)
+      props.setUserData({
+        user: false,
+        loggedIn: false,
+        error: 'Invalid Token',
+      })
+      console.log('no 200')
+      navigate('/login')
+      return
+    }
     let resJson = await res.json()
     console.log('resJson!!!', resJson)
     props.setUserData({ loggedIn: true, user: resJson })
@@ -84,10 +93,6 @@ function Login(props) {
           setEmailValidated={setEmailValidated}
           userData={props.userData}
         />
-      </div>
-      <div className="aa">
-        <div className="bb"></div>
-        {/* <div className="nn"></div> */}
       </div>
     </div>
   )

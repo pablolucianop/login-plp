@@ -13,6 +13,11 @@ function EmailInputContainer(props) {
   return (
     <form onSubmit={handleSubmit}>
       <div className="alertArea">
+        {props.userData.error === 'Invalid Token' && (
+          <p className="invalidToken expiredToken">
+            Your session has expired. Please relogin.
+          </p>
+        )}
         {props.userData.error === 'Invalid Credentials' && (
           <p className="invalidCredentials">
             Please provide a valid email address and password.

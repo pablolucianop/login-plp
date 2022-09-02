@@ -9,7 +9,11 @@ import UserInfo from './components/userInfo'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 function Application(props) {
-  const [userData, setUserData] = useState({ user: false, loggedIn: false })
+  const [userData, setUserData] = useState({
+    user: false,
+    loggedIn: false,
+    error: null,
+  })
   return (
     <BrowserRouter>
       <Routes>
