@@ -42,7 +42,6 @@ function Login(props) {
       })
 
       return
-      // throw new Error(res.status)
     }
 
     const resJson = await res.json()
