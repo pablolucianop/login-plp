@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
-import './userInfo.css'
+import './UserInfo.css'
 import { useNavigate } from 'react-router-dom'
 function UserInfo(props) {
-  let user = props.userData.user
-  let navigate = useNavigate()
+  const user = props.userData.user
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (user === false) {
@@ -12,7 +12,7 @@ function UserInfo(props) {
     }
   })
 
-  let avatarImgStyle = {
+  const avatarImgStyle = {
     width: '150px',
     height: '150px',
     backgroundImage: `url(${user.avatar})`,

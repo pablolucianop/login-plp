@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
-import './EmailInputContainer.css'
-function EmailInputContainer(props) {
+import AlertArea from './AlertArea'
+import './LoginInputAndBtn.css'
+
+function LoginInputAndBtn(props) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const handleSubmit = (e) => {
@@ -12,31 +14,11 @@ function EmailInputContainer(props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="alertArea">
-        {props.userData.error === 'Invalid Token' && (
-          <p className="invalidToken expiredToken">
-            Your session has expired. Please relogin.
-          </p>
-        )}
-        {props.userData.error === 'Invalid Credentials' && (
-          <p className="invalidCredentials">
-            Please provide a valid email address and password.
-          </p>
-        )}
-        {props.emailValidated === false &&
-          props.userData.error !== 'Invalid Credentials' && (
-            <p className="alert">Invalid email</p>
-          )}
-
-        {props.emailValidated && (
-          <button
-            className="change"
-            onClick={() => props.setEmailValidated(null)}
-          >
-            Change
-          </button>
-        )}
-      </div>
+      <AlertArea
+        userData={props.userData}
+        emailValidated={props.emailValidated}
+        setEmailValidated={props.setEmailValidated}
+      />
       <input
         type="text"
         onChange={(e) => setEmail(e.target.value)}
@@ -45,14 +27,8 @@ function EmailInputContainer(props) {
         disabled={props.emailValidated}
         required
       />
-
-      {/* {props.emailValidated &&  <p className="check">✔️</p>} */}
-      {/* {renderErrorMessage('uname')} */}
-
       {props.emailValidated && (
         <div>
-          {/* <label>password</label> */}
-
           <input
             type="password"
             onChange={(e) => setPassword(e.target.value)}
@@ -60,7 +36,6 @@ function EmailInputContainer(props) {
             placeholder="Password"
             required
           />
-          {/* {renderErrorMessage('uname')} */}
         </div>
       )}
       {props.emailValidated ? (
@@ -77,4 +52,4 @@ function EmailInputContainer(props) {
     </form>
   )
 }
-export default EmailInputContainer
+export default LoginInputAndBtn

@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import './App.css'
 import { useNavigate } from 'react-router-dom'
-import EmailInputContainer from './EmailInputContainer'
+import LoginInputAndBtn from './LoginInputAndBtn'
 import './Login.css'
 
 function Login(props) {
-  let navigate = useNavigate()
+  const navigate = useNavigate()
   const [emailValidated, setEmailValidated] = useState(null)
 
   async function handleSubmitEmail(email) {
-    let res = await fetch('http://localhost:9000/v0/validateMail', {
+    const res = await fetch('http://localhost:9000/v0/validateMail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -18,17 +18,13 @@ function Login(props) {
         email: email,
       }),
     })
-
-    let resJson = await res.json()
+    const resJson = await res.json()
     console.log('resJson', resJson)
     setEmailValidated(resJson)
   }
 
   async function authenticateUser(email, password) {
-    console.log('autenticate!!!')
-
-    console.log('email, password', email, password)
-    let res = await fetch('http://localhost:9000/v0/authenticate', {
+    const res = await fetch('http://localhost:9000/v0/authenticate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -50,13 +46,12 @@ function Login(props) {
       // throw new Error(res.status)
     }
 
-    let resJson = await res.json()
-
+    const resJson = await res.json()
     getUserInfo(resJson)
   }
 
   async function getUserInfo(jwt) {
-    let res = await fetch('http://localhost:9000/v0/users/me', {
+    const res = await fetch('http://localhost:9000/v0/users/me', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -76,7 +71,7 @@ function Login(props) {
       navigate('/login')
       return
     }
-    let resJson = await res.json()
+    const resJson = await res.json()
     console.log('resJson!!!', resJson)
     props.setUserData({ loggedIn: true, user: resJson })
     navigate('/user-info')
@@ -86,7 +81,7 @@ function Login(props) {
     <div className="form">
       <div className="form-wrapper">
         <h3> Log in to your account</h3>
-        <EmailInputContainer
+        <LoginInputAndBtn
           handleSubmitEmail={handleSubmitEmail}
           authenticateUser={authenticateUser}
           emailValidated={emailValidated}

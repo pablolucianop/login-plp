@@ -15,7 +15,7 @@ router.post('/', async function (req, res, next) {
   try {
     const decoded = jwt.verify(token, config.TOKEN_KEY)
     console.log('decoded', decoded)
-    let email = decoded.email
+    const email = decoded.email
     const user = User.filter((obj) => obj.email === email)[0]
     console.log('user', user)
     res.status(200).json(user)

@@ -15,7 +15,6 @@ input{
     outline: none
 }
 
-
 input:hover {
     -moz-box-shadow: 0px 0px 4px #095a8b;
     -webkit-box-shadow: 0px 0px 4px #095a8b;
@@ -48,6 +47,7 @@ label {
     right: 0%;
     top: 48px;
 }
+
 .NextLoginBtn {
     background-color: #063b5b;
     color: #ffffff;
@@ -66,11 +66,9 @@ label {
     white-space: nowrap;
     padding: 0 16px;
     font-family: "Nunito", sans-serif;
-    transition-duration: 2s;
-    transition-timing-function: linear;
-    transition-delay: 1s;
     transition: 0.3s;
 }
+
 .NextLoginBtn:hover {
     background-color: #095a8b;
     -moz-box-shadow: 0px 0px 4px #ffffff;
@@ -82,48 +80,6 @@ label {
     background: #90949e;
 }
 
-.alertArea {
-    height: 80px;
-    color: rgb(219, 48, 48);
-    width: 320px;
-    margin-top: 10px;
-    position: relative;
-}
 
-.invalidCredentials {
-    font-size: small;
-    order:2;
-    width: 200px;
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-}
-.expiredToken{
-        color: rgb(27, 27, 27);
-}
-
-.change{
-    color: #379392;
-    opacity: 0.8;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none; 
-    line-height: 0px;
-    height: 22px;
-    width: 100px;
-    order: 1;
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-}
-
-.alert {
-    order: 1;
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-}
 
 
