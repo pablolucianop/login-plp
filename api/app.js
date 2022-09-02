@@ -7,6 +7,13 @@ const validateMailRouter = require('./routes/v0/validateMail')
 const usersMeRouter = require('./routes/v0/users/me')
 const app = express()
 
+const path = require('path')
+app.use(express.static(path.join(__dirname, 'build')))
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', index.html))
+})
+// app2.listen(5000)
+
 require('dotenv').config()
 app.use(cors())
 app.use(express.json())
@@ -19,6 +26,8 @@ app.use('/v0/users/me', usersMeRouter)
 app.use(function (req, res, next) {
   next(createError(404))
 })
+
+console.log('app')
 
 // error handler
 app.use(function (err, req, res, next) {
