@@ -8,6 +8,7 @@ function Login(props) {
   const navigate = useNavigate()
   const [emailValidated, setEmailValidated] = useState(null)
 
+  //authentication and authorization functions
   async function handleSubmitEmail(email) {
     const res = await fetch('http://localhost:9000/v0/validateMail', {
       method: 'POST',
@@ -19,7 +20,6 @@ function Login(props) {
       }),
     })
     const resJson = await res.json()
-    console.log('resJson', resJson)
     setEmailValidated(resJson)
   }
 
@@ -34,7 +34,6 @@ function Login(props) {
         password: password,
       }),
     })
-    console.log('res.status', res.status)
     if (res.status !== 200) {
       props.setUserData({
         loggedIn: true,
@@ -67,12 +66,10 @@ function Login(props) {
         loggedIn: false,
         error: 'Invalid Token',
       })
-      console.log('no 200')
       navigate('/login')
       return
     }
     const resJson = await res.json()
-    console.log('resJson!!!', resJson)
     props.setUserData({ loggedIn: true, user: resJson })
     navigate('/user-info')
   }

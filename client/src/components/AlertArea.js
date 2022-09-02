@@ -1,7 +1,7 @@
 import './AlertArea.css'
 
 function alertArea(props) {
-  let expiredTokenAlert = (
+  const expiredTokenAlert = (
     <p className="invalidToken expiredToken">
       Your session has expired. Please relogin.
     </p>

@@ -14,13 +14,10 @@ router.post('/', async function (req, res, next) {
   }
   try {
     const decoded = jwt.verify(token, config.TOKEN_KEY)
-    console.log('decoded', decoded)
     const email = decoded.email
     const user = User.filter((obj) => obj.email === email)[0]
-    console.log('user', user)
     res.status(200).json(user)
   } catch (err) {
-    console.log('err', err)
     return res.status(401).send('Invalid Token')
   }
 })

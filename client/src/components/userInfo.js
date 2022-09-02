@@ -7,7 +7,6 @@ function UserInfo(props) {
 
   useEffect(() => {
     if (user === false) {
-      console.log('esto')
       navigate('/')
     }
   })
