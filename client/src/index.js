@@ -18,7 +18,7 @@ function Application(props) {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/"
+          path="/login-plp"
           element={<Login setUserData={setUserData} userData={userData} />}
         />
         <Route
@@ -26,10 +26,13 @@ function Application(props) {
           element={<Login setUserData={setUserData} userData={userData} />}
         />
         <Route
-          path="/login"
+          path="login-plp/login"
           element={<Login setUserData={setUserData} userData={userData} />}
         />
-        <Route path="user-info" element={<UserInfo userData={userData} />} />
+        <Route
+          path="login-plp/user-info"
+          element={<UserInfo userData={userData} />}
+        />
       </Routes>
     </BrowserRouter>
   )
