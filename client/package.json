@@ -2,7 +2,7 @@
   "name": "login-react-express",
   "version": "0.1.0",
   "private": true,
-  "homepage": "./",
+  "homepage": "https://pablolucianop.github.io/login-plp/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
