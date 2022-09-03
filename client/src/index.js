@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import Login from './components/Login'
 import reportWebVitals from './reportWebVitals'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import UserInfo from './components/UserInfo'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
@@ -15,7 +15,7 @@ function Application(props) {
     error: null,
   })
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route
           path="/login-plp"
@@ -34,7 +34,7 @@ function Application(props) {
           element={<UserInfo userData={userData} />}
         />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
