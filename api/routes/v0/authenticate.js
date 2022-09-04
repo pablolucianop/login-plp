@@ -39,8 +39,9 @@ router.post('/', async function (req, res, next) {
       )
       user.token = token
       res.status(200).json(token)
+    } else {
+      res.status(401).json(JSON.stringify(unauthorized))
     }
-    res.status(401).json(JSON.stringify(unauthorized))
   } catch (err) {
     console.log(err)
   }

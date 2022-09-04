@@ -7,7 +7,7 @@ function UserInfo(props) {
 
   useEffect(() => {
     if (user === false) {
-      navigate('/')
+      navigate('/login-plp')
     }
   })
 
