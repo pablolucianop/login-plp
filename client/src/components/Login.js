@@ -65,12 +65,12 @@ function Login(props) {
         loggedIn: false,
         error: 'Invalid Token',
       })
-      navigate('/login')
+      navigate('/login-plp/login')
       return
     }
     const resJson = await res.json()
     props.setUserData({ loggedIn: true, user: resJson })
-    navigate('/user-info')
+    navigate('/login-plp/user-info')
   }
 
   return (
