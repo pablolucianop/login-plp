@@ -2,7 +2,6 @@
   "name": "api",
   "version": "0.0.0",
   "private": true,
-  "homepage": "http://pablolucianop.github.io/login-plp",
   "scripts": {
     "start": "nodemon ./bin/www "    
   },
