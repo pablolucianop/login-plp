@@ -25,6 +25,6 @@ app.use('/v0/authenticate', authenticateRouter)
 app.use('/v0/validateMail', validateMailRouter)
 app.use('/v0/users/me', usersMeRouter)
 
-
+console.log('app')
 
 module.exports = app
