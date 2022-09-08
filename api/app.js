@@ -17,7 +17,7 @@ app.get('*', function (req, res) {
 })
 
 require('dotenv').config()
-// app.use(cors())
+app.use(cors())
 const config = {
   application: {
     cors: {
