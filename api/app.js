@@ -17,7 +17,21 @@ app.get('*', function (req, res) {
 })
 
 require('dotenv').config()
-app.use(cors())
+// app.use(cors())
+const config = {
+  application: {
+    cors: {
+      server: [
+        {
+          origin: 'localhost:9000', //servidor que deseas que consuma o (*) en caso que sea acceso libre
+          credentials: true,
+        },
+      ],
+    },
+  },
+}
+
+app.use(cors(config.application.cors.server))
 app.use(express.json())
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
